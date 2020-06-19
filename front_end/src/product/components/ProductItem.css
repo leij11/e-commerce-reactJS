@@ -1,0 +1,17 @@
+
+.place-item__image {
+  width: 0.5rem;
+  height: 0.5rem;
+  margin-right: 2rem;
+}
+
+.place-item__image img {
+  width: 20%;
+  height: 30%;
+}
+
+@media  {
+  .place-item__image {
+    height: 0.5rem;
+    width: 10px
+  }
