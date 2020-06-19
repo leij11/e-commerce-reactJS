@@ -5,11 +5,11 @@ const DUMMY_Product = [
 {
   id: 'p1',
   name: 'Cut off dress',
-  brand: 'Zara',
+  brand: 'Shein',
   image:
     'https://img.ltwebstatic.com/images2_pi/2018/04/18/1524050624978008600.webp',
-  category: 'jacket',
-  price: '48',
+  category: 'top',
+  price: '$48.3',
   rating: '4'
 },
 {
@@ -19,7 +19,27 @@ const DUMMY_Product = [
   image:
     'https://img.ltwebstatic.com/images2_pi/2018/04/18/1524050624978008600.webp',
   category: 'jacket',
-  price: '48',
+  price: '$48',
+  rating: '3'
+},
+{
+  id: 'p3',
+  name: 'Cut off dress',
+  brand: 'Zara',
+  image:
+    'https://img.ltwebstatic.com/images2_pi/2018/04/18/1524050624978008600.webp',
+  category: 'jacket',
+  price: '$48',
+  rating: '3'
+},
+{
+  id: 'p4',
+  name: 'Cut off dress',
+  brand: 'Zara',
+  image:
+    'https://img.ltwebstatic.com/images2_pi/2018/04/18/1524050624978008600.webp',
+  category: 'jacket',
+  price: '$48',
   rating: '3'
 }
 ];
