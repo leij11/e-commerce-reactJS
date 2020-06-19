@@ -8,6 +8,7 @@ import {
 } from 'react-router-dom';
 
 import User from './user/pages/User.js'
+import Auth from './user/pages/Auth.js'
 import Product from './product/pages/Product.js'
 import Home from './Home.js'
 
@@ -23,6 +24,9 @@ const App = () => {
         </Route>
         <Route path="/user">
           <User />
+        </Route>
+        <Route path="/auth">
+          <Auth />
         </Route>
         <Redirect to="/" />
       </Switch>
