@@ -11,10 +11,13 @@ import User from './user/pages/User.js'
 import Auth from './user/pages/Auth.js'
 import Product from './product/pages/Product.js'
 import Home from './Home.js'
+import MainNavigation from './share/Navigation/MainNavigation';
+
 
 const App = () => {
   return (
     <Router>
+      <MainNavigation />
       <Switch>
         <Route path="/" exact>
           <Home />
