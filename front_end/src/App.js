@@ -6,33 +6,32 @@ import {
   Redirect,
   Switch
 } from 'react-router-dom';
-
 import User from './user/pages/User.js'
 import Auth from './user/pages/Auth.js'
 import Product from './product/pages/Product.js'
-import Home from './Home.js'
-import MainNavigation from './share/Navigation/MainNavigation';
-
-
+import SideDrawer from './share/Navigation/SideDrawer';
+import Header from './share/Navigation/Header'
 const App = () => {
   return (
     <Router>
-      <MainNavigation />
+      <SideDrawer />
+      <Header />
+
       <Switch>
-        <Route path="/" exact>
-          <Home />
-        </Route>
-        <Route path="/product" exact>
-          <Product />
-        </Route>
-        <Route path="/user">
-          <User />
-        </Route>
-        <Route path="/auth">
-          <Auth />
-        </Route>
-        <Redirect to="/" />
-      </Switch>
+            <Route path="/" exact>
+              <Product />
+            </Route>
+            <Route path="/product" exact>
+              <Product />
+            </Route>
+            <Route path="/user">
+              <User />
+            </Route>
+            <Route path="/auth">
+              <Auth />
+            </Route>
+            <Redirect to="/" />
+          </Switch>
     </Router>
   );
 }
