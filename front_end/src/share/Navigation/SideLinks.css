@@ -1,0 +1,51 @@
+.side-links {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.side-links li {
+  margin: 1rem;
+}
+
+.side-links a {
+  border: 1px solid transparent;
+  color: Snow;
+  font-size: 2em;
+  font-weight: bold;
+  text-decoration: none;
+  padding: 0.5rem;
+}
+
+.side-links a:hover,
+.side-links a:active,
+.side-links a.active {
+  background: #f8df00;
+  border-color: SlateGrey;
+  color: #292929;
+}
+
+.side-links button {
+  cursor: pointer;
+  border: 1px solid #292929;
+  color: #292929;
+  background: transparent;
+  padding: 0.5rem;
+  font: inherit;
+}
+
+.side-links button:focus {
+  outline: none;
+}
+
+.side-links button:hover,
+.side-links button:active {
+  background: #292929;
+  color: white;
+}

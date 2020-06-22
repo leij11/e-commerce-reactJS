@@ -1,15 +1,15 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 
-import './NavLinks.css';
+import './SideLinks.css';
 
 const NavLinks = props => {
-  return <ul className="nav-links">
+  return <ul className="side-links">
     <li>
-      <NavLink to="/home">HOME</NavLink>
+      <NavLink to="/home">Pants</NavLink>
     </li>
     <li>
-      <NavLink to="/auth">LOG IN</NavLink>
+      <NavLink to="/auth">Tops</NavLink>
     </li>
   </ul>
 };

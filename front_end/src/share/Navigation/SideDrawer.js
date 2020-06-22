@@ -1,39 +1,23 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import ReactDOM from 'react-dom';
+import { CSSTransition } from 'react-transition-group';
+
 import './SideDrawer.css';
 
-const SideDrawer = () => {
-  const openMenu = () => {
-    document.querySelector(".sidebar").classList.add("open");
-  }
-  const closeMenu = () => {
-    document.querySelector(".sidebar").classList.remove("open")
-  }
-  return (
-      <React.Fragment>
-    <Link to="/" > SHOP HERE</Link>
-    <button onClick={openMenu}>
-       &#9776;
-    </button>
+const SideDrawer = props => {
+  const content = (
+    <CSSTransition
+      in={props.show}
+      timeout={200}
+      classNames="slide-in-left"
+      mountOnEnter
+      unmountOnExit
+    >
+      <aside className="side-drawer" onClick={props.onClick}>{props.children}</aside>
+    </CSSTransition>
+  );
 
-    <aside className="sidebar">
-        <h3>Categories</h3>
-        <button className="sidebar-close-button" onClick={closeMenu}>
-          &#10006;
-        </button>
-        <ul className="categories">
-          <li>
-            <Link to="/product">PRODUCTS</Link>
-          </li>
+  return ReactDOM.createPortal(content, document.getElementById('drawer-hook'));
+};
 
-          <li>
-            <Link to="/auth">auth</Link>
-          </li>
-
-        </ul>
-      </aside>
-    </React.Fragment>
-  )
-}
-
-export default SideDrawer
+export default SideDrawer;

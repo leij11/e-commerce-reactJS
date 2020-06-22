@@ -9,13 +9,13 @@ import {
 import User from './user/pages/User.js'
 import Auth from './user/pages/Auth.js'
 import Product from './product/pages/Product.js'
-import SideDrawer from './share/Navigation/SideDrawer';
-import Header from './share/Navigation/Header'
+import MainNavigation from './share/Navigation/MainNavigation'
 const App = () => {
   return (
     <Router>
-      <SideDrawer />
-      <Header />
+
+      <MainNavigation />
+
 
       <Switch>
             <Route path="/" exact>

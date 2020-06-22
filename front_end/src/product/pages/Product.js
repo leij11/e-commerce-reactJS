@@ -1,6 +1,6 @@
 import React from 'react';
 import ProductList from '../components/ProductList.js'
-
+import LoadingSpinner from '../../share/UIElements/LoadingSpinner';
 const DUMMY_Product = [
 {
   id: 'p1',
@@ -45,7 +45,11 @@ const DUMMY_Product = [
 ];
 
 const Product = () => {
-  return <ProductList items={DUMMY_Product} />;
+  return (
+    <React.Fragment>
+      <ProductList items={DUMMY_Product} />;
+    </React.Fragment>
+  )
 }
 
 export default Product;
