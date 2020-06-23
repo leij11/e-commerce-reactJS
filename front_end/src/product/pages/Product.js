@@ -47,7 +47,6 @@ const DUMMY_PRODUCT = [
 
 const Product = () => {
   const category=useParams().category;
-  //console.log(category)
   const loadedCategory=DUMMY_PRODUCT.filter(product=>product.category===category)
   return <ProductList items={loadedCategory} />;
 
