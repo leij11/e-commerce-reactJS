@@ -1,7 +1,8 @@
 import React from 'react';
 import ProductList from '../components/ProductList.js'
-import LoadingSpinner from '../../share/UIElements/LoadingSpinner';
-const DUMMY_Product = [
+//import LoadingSpinner from '../../share/UIElements/LoadingSpinner';
+import {useParams} from 'react-router-dom'
+const DUMMY_PRODUCT = [
 {
   id: 'p1',
   name: 'Cut off dress',
@@ -18,7 +19,7 @@ const DUMMY_Product = [
   brand: 'Zara',
   image:
     'https://img.ltwebstatic.com/images2_pi/2018/04/18/1524050624978008600.webp',
-  category: 'jacket',
+  category: 'top',
   price: '$48',
   rating: '3'
 },
@@ -28,7 +29,7 @@ const DUMMY_Product = [
   brand: 'Zara',
   image:
     'https://img.ltwebstatic.com/images2_pi/2018/04/18/1524050624978008600.webp',
-  category: 'jacket',
+  category: 'pants',
   price: '$48',
   rating: '3'
 },
@@ -38,18 +39,18 @@ const DUMMY_Product = [
   brand: 'Zara',
   image:
     'https://img.ltwebstatic.com/images2_pi/2018/04/18/1524050624978008600.webp',
-  category: 'jacket',
+  category: 'pants',
   price: '$48',
   rating: '3'
 }
 ];
 
 const Product = () => {
-  return (
-    <React.Fragment>
-      <ProductList items={DUMMY_Product} />;
-    </React.Fragment>
-  )
+  const category=useParams().category;
+  //console.log(category)
+  const loadedCategory=DUMMY_PRODUCT.filter(product=>product.category===category)
+  return <ProductList items={loadedCategory} />;
+
 }
 
 export default Product;

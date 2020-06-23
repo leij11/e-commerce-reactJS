@@ -10,18 +10,19 @@ import User from './user/pages/User.js'
 import Auth from './user/pages/Auth.js'
 import Product from './product/pages/Product.js'
 import MainNavigation from './share/Navigation/MainNavigation'
+import Home from './Home.js'
 const App = () => {
   return (
     <Router>
 
       <MainNavigation />
 
-
+<main>
       <Switch>
             <Route path="/" exact>
-              <Product />
+              <Home />
             </Route>
-            <Route path="/product" exact>
+            <Route path="/product/:category" exact>
               <Product />
             </Route>
             <Route path="/user">
@@ -32,6 +33,7 @@ const App = () => {
             </Route>
             <Redirect to="/" />
           </Switch>
+          </main>
     </Router>
   );
 }
