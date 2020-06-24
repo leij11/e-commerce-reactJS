@@ -1,8 +1,8 @@
 const { v4: uuid} = require('uuid');
 const mongoose = require('mongoose');
 
-const Product = require('../models/product-models');
-const User = require('../models/user-models');
+const Product = require('../models/product-model');
+const User = require('../models/user-model');
 const HttpError = require('../models/http-error');
 
 const getProductById= async (req, res, next) => {
@@ -13,7 +13,7 @@ const getProductById= async (req, res, next) => {
     product = await Product.findById(productId);
   } catch (err) {
     const error = new HttpError(
-      'Something went wrong, could not find a place.',
+      'Something went wrong, could not find a product.',
       500
     );
     return next(error);
@@ -21,15 +21,16 @@ const getProductById= async (req, res, next) => {
 
   if (!product) {
     const error = new HttpError(
-      'Could not find place for the provided id.',
+      'Could not find product for the provided id.',
       404
     );
     return next(error);
 }
+}
 
 const createProduct= async(req,res,next) =>
 {
-  const product = new Product({
+  const createdProduct = new Product({
       name: req.body.name,
       price: req.body.price,
       image: req.body.image,
@@ -40,7 +41,7 @@ const createProduct= async(req,res,next) =>
       rating: req.body.rating,
       numReviews: req.body.numReviews,
     });
-    const newProduct = await product.save();
+    const newProduct = await createdProduct.save();
     if (newProduct) {
       return res
         .status(201)
