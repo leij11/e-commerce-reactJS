@@ -2,17 +2,46 @@ const { v4: uuid} = require('uuid');
 const mongoose = require('mongoose');
 
 const Product = require('../models/product-model');
-const User = require('../models/user-model');
 const HttpError = require('../models/http-error');
 
-const getProductById= async (req, res, next) => {
+const getAllProduct= async (req, res, next) => {
+  let product;
 
-  const product = await Product.findOne({ _id: req.params.pid });
-  if (product) {
-    res.send(product);
-  } else {
-    res.status(404).send({ message: 'Product Not Found.' });
+  try {
+    product = await Product.find({});
+  } catch (err) {
+    const error = new HttpError(
+      'Something went wrong, could not find products.',
+      500
+    );
+    return next(error);
   }
+  res.json({ product: product.map(user => user.toObject({ getters: true })) });
+}
+
+const getProductById= async (req, res, next) => {
+  const productId = req.params.pid;
+
+  let product;
+  try {
+    product = await Product.findById(productId);
+  } catch (err) {
+    const error = new HttpError(
+      'Something went wrong, could not find a product.',
+      500
+    );
+    return next(error);
+  }
+
+    if (!product) {
+    const error = new HttpError(
+      'Could not find product for the provided id.',
+      404
+    );
+    return next(error);
+  }
+
+  res.json({ product: product.toObject({ getters: true }) });
 }
 
 
@@ -71,6 +100,7 @@ const createProduct= async(req,res,next) =>
 
 }
 
+exports.getAllProduct = getAllProduct;
 exports.getProductById = getProductById;
 exports.createProduct = createProduct;
 exports.deleteProduct = deleteProduct;

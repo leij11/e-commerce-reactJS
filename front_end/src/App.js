@@ -14,26 +14,27 @@ import Home from './Home.js'
 const App = () => {
   return (
     <Router>
-
       <MainNavigation />
-
-<main>
-      <Switch>
+      <main>
+        <Switch>
             <Route path="/" exact>
               <Home />
             </Route>
-            <Route path="/product/:category" exact>
+            <Route path="/product" exact>
               <Product />
             </Route>
-            <Route path="/user">
-              <User />
+            <Route path="/product/:pid" exact>
+              <Product />
+            </Route>
+            <Route path="/category/:id">
+              <Home />
             </Route>
             <Route path="/auth">
               <Auth />
             </Route>
             <Redirect to="/" />
-          </Switch>
-          </main>
+        </Switch>
+      </main>
     </Router>
   );
 }

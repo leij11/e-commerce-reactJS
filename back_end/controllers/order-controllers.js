@@ -1,9 +1,6 @@
-import express from 'express';
-import Order from '../models/order-models';
+const Order = require('../models/order-models.js');
 
-const router = express.Router();
-
-const createProduct= async(req,res,next) =>{
+const createOrder= async(req,res,next) =>{
   const newOrder = new Order({
     orderItems: req.body.orderItems,
     user: req.user._id,

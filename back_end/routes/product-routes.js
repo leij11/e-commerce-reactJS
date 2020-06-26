@@ -3,6 +3,8 @@ const router = express.Router();
 const productControllers = require('../controllers/product-controllers.js');
 const { check } = require('express-validator');
 
+router.get('/',productControllers.getAllProduct);
+
 router.get('/:pid',productControllers.getProductById);
 
 router.post('/', productControllers.createProduct,[
