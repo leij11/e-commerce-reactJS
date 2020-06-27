@@ -1,5 +1,5 @@
 import React from 'react';
-import ProductList from '../components/ProductList.js'
+import ProductList from '../product/components/ProductList.js'
 //import LoadingSpinner from '../../share/UIElements/LoadingSpinner';
 import {useParams} from 'react-router-dom'
 const DUMMY_PRODUCT = [
@@ -47,6 +47,7 @@ const DUMMY_PRODUCT = [
 
 const Product = () => {
   const category=useParams().category;
+  //console.log(category)
   const loadedCategory=DUMMY_PRODUCT.filter(product=>product.category===category)
   return <ProductList items={loadedCategory} />;
 

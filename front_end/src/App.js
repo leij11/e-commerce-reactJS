@@ -6,11 +6,14 @@ import {
   Redirect,
   Switch
 } from 'react-router-dom';
-import User from './user/pages/User.js'
-import Auth from './user/pages/Auth.js'
-import Product from './product/pages/Product.js'
+import User from './pages/User.js'
+import Auth from './pages/Auth.js'
+import Product from './pages/Product.js'
+import ProductDetail from './pages/ProductDetail.js'
 import MainNavigation from './share/Navigation/MainNavigation'
-import Home from './Home.js'
+import Cart from './pages/Cart.js'
+import Home from './pages/Home.js'
+
 const App = () => {
   return (
     <Router>
@@ -20,17 +23,20 @@ const App = () => {
             <Route path="/" exact>
               <Home />
             </Route>
-            <Route path="/product" exact>
+            <Route path="/product/:category" exact>
               <Product />
             </Route>
-            <Route path="/product/:pid" exact>
-              <Product />
+            <Route path="/product/id/:id" >
+              <ProductDetail />
             </Route>
             <Route path="/category/:id">
               <Home />
             </Route>
             <Route path="/auth">
               <Auth />
+            </Route>
+            <Route path="/cart">
+              <Cart />
             </Route>
             <Redirect to="/" />
         </Switch>

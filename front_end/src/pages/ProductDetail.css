@@ -1,0 +1,32 @@
+
+.details {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 1rem;
+}
+.details-image {
+  margin-top: 1em;
+  margin-left: 1em;
+  flex: 2 1 60rem;
+}
+.details-image img {
+  max-width: 40rem;
+  width: 90%;
+}
+.details-info {
+  flex: 1 1 30rem;
+}
+
+
+.details-info ul,
+.details-action ul {
+  list-style-type: none;
+  padding: 0;
+}
+.details-info li,
+
+.detail-button {
+  padding: 2rem;
+}
