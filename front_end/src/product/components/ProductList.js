@@ -5,7 +5,7 @@ import './ProductList.css'
 const ProductList = props => {
   return (
     <div className='product-list' >
-    <Card.Group itemsPerRow={3}>
+    <Card.Group itemsPerRow={2}>
       {props.items.map(product => (
         <ProductItem
           key={product.id}

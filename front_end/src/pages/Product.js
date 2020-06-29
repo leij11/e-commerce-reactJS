@@ -25,23 +25,23 @@ const DUMMY_PRODUCT = [
 },
 {
   id: 'p3',
-  name: 'Cut off dress',
-  brand: 'Zara',
+  name: 'Take out pants',
+  brand: 'OakleyAFA',
   image:
-    'https://img.ltwebstatic.com/images2_pi/2018/04/18/1524050624978008600.webp',
+    'https://assets.oakley.com/is/image/OakleyAFA/190645229550_take-pro-pant_miscassorted_main_001.png?impolicy=OO_zoom',
   category: 'pants',
-  price: '$48',
-  rating: '3'
+  price: '$78',
+  rating: '5'
 },
 {
   id: 'p4',
-  name: 'Cut off dress',
-  brand: 'Zara',
+  name: 'Black Jeans',
+  brand: 'OakleyAFA',
   image:
-    'https://img.ltwebstatic.com/images2_pi/2018/04/18/1524050624978008600.webp',
+    'https://assets.oakley.com/is/image/OakleyAFA/190645522811_take-pro-pant_blackout_main_001.png',
   category: 'pants',
-  price: '$48',
-  rating: '3'
+  price: '$56',
+  rating: '3.5'
 }
 ];
 

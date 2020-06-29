@@ -5,6 +5,7 @@ const Product = require('../models/product-model');
 const HttpError = require('../models/http-error');
 
 const getAllProduct= async (req, res, next) => {
+  /*
   let product;
 
   try {
@@ -17,6 +18,9 @@ const getAllProduct= async (req, res, next) => {
     return next(error);
   }
   res.json({ product: product.map(user => user.toObject({ getters: true })) });
+  */
+  const products = await Product.find({ });
+  res.send(products);
 }
 
 const getProductById= async (req, res, next) => {
