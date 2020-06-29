@@ -9,7 +9,7 @@ const ProductList = props => {
       {props.items.map(product => (
         <ProductItem
           key={product.id}
-          id={product.id}
+          id={product._id}
           image={product.image}
           name={product.name}
           category={product.category}

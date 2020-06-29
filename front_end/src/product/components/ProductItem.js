@@ -4,7 +4,7 @@ import './ProductItem.css'
 
 const ProductItem = props => {
   return (
-      <Card href={'/product/id/' + props.id} >
+      <Card href={'/product/' + props.id} >
         <Image src={props.image} alt={props.title} fluid />
         <Card.Content>
           <Card.Header className="product-title-font"> {props.name} </Card.Header>

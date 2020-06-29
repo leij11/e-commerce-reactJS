@@ -12,7 +12,8 @@
   flex: 2 1 60rem;
 }
 .details-image img {
-  max-width: 40rem;
+  max-width: 30rem;
+  max-height:40rem;
   width: 90%;
 }
 .details-info {
