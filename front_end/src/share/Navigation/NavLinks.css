@@ -1,6 +1,6 @@
 .nav-links {
   list-style: none;
-  margin: 0;
+  margin: 0 0.2 0 0.2rem;
   padding: 0;
   width: 100%;
   height: 100%;
@@ -18,8 +18,7 @@
   border: 1px solid transparent;
   color: white;
   text-decoration: none;
-  padding: 0 0.1rem 0 0.2rem;
-  font-size:12px;
+  font-size:18px;
 }
 
 .nav-links a:hover,
@@ -32,12 +31,12 @@
 
 .nav-links button {
   cursor: pointer;
-  border: 1px solid #292929;
+  border: 1px solid white;
+  color: white;
   background: transparent;
   padding: 0.5rem;
   font: inherit;
   border: 1px solid white;
-  color: white;
 }
 
 .nav-links button:focus {
@@ -48,28 +47,4 @@
 .nav-links button:active {
   background: #f8df00;
   color: #292929;
-}
-
-@media (min-width: 768px) {
-  .nav-links li {
-    margin: 0 0.2 0 0.2rem;
-  }
-
-  .nav-links a {
-    color: white;
-    text-decoration: none;
-    font-size:18px;
-  }
-
-  .nav-links button {
-    border: 1px solid white;
-    color: white;
-    background: transparent;
-  }
-
-  .nav-links button:hover,
-  .nav-links button:active {
-    background: #f8df00;
-    color: #292929;
-  }
 }

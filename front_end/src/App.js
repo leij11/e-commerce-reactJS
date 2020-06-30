@@ -23,14 +23,8 @@ const App = () => {
             <Route path="/" exact>
               <Home />
             </Route>
-            <Route path="/:category" exact>
-              <Product />
-            </Route>
             <Route path="/product/:id" >
               <ProductDetail />
-            </Route>
-            <Route path="/category/:id">
-              <Home />
             </Route>
             <Route path="/auth">
               <Auth />
