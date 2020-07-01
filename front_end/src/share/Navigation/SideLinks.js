@@ -9,7 +9,7 @@ const NavLinks = props => {
       <NavLink to="/category/Pants">Pants</NavLink>
     </li>
     <li>
-      <NavLink to="/category/top">Tops</NavLink>
+      <NavLink to="/category/Dress">Dress</NavLink>
     </li>
   </ul>
 };

@@ -18,7 +18,10 @@ const ProductDetail = props => {
     return ()=>{};
   }, []);
   const product=loadedProduct
-  const rating=product.rating
+
+  const handleAddToCart = () => {
+  props.history.push('/cart/' + productID);
+};
   return(
     <React.Fragment>
     <div className='detail-button'>
@@ -32,9 +35,9 @@ const ProductDetail = props => {
           <Icon name='arrow left' />
         </Button.Content>
       </Button>
-      <Button animated='vertical' >
+      <Button animated='vertical' onClick={handleAddToCart} >
         <Button.Content visible>
-        <NavLink to="/cart">
+        <NavLink to="/cart/:id">
         <Icon name='shop' />
           Add to Cart
         </NavLink>

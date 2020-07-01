@@ -46,7 +46,7 @@ const getProductById= async (req, res, next) => {
     return next(error);
   }
   res.send(product);
-//  res.json({ product: product.toObject({ getters: true }) });
+//res.json({ product: product.toObject({ getters: true }) });
 }
 
 
