@@ -6,10 +6,10 @@ import './SideLinks.css';
 const NavLinks = props => {
   return <ul className="side-links">
     <li>
-      <NavLink to="/product/pants">Pants</NavLink>
+      <NavLink to="/category/Pants">Pants</NavLink>
     </li>
     <li>
-      <NavLink to="/product/top">Tops</NavLink>
+      <NavLink to="/category/top">Tops</NavLink>
     </li>
   </ul>
 };

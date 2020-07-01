@@ -19,7 +19,8 @@ const getAllProduct= async (req, res, next) => {
   }
   res.json({ product: product.map(user => user.toObject({ getters: true })) });
   */
-  const products = await Product.find({ });
+  const category = req.query.category ? { category: req.query.category } : {};
+  const products = await Product.find({...category});
   res.send(products);
 }
 

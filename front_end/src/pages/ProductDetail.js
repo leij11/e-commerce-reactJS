@@ -4,6 +4,7 @@ import {useParams} from 'react-router-dom'
 import './ProductDetail.css'
 import {Button,Icon,Rating } from 'semantic-ui-react'
 import { NavLink } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
 
 const ProductDetail = props => {
   const [loadedProduct, setLoadedProduct] = useState({});
