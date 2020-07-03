@@ -14,7 +14,7 @@ import {
   PRODUCT_REVIEW_SAVE_REQUEST,
   PRODUCT_REVIEW_SAVE_FAIL,
   PRODUCT_REVIEW_SAVE_SUCCESS,
-} from '../constants/productConstants';
+} from './index.js';
 import axios from 'axios';
 import Axios from 'axios';
 
