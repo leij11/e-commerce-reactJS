@@ -9,7 +9,7 @@ const ProductItem = props => {
         <Card.Content>
           <Card.Header className="product-title-font"> {props.name} </Card.Header>
           <Card.Description className="product-h2-font"> {props.brand} </Card.Description>
-          <Card.Header className="product-h1-font"> {props.price} </Card.Header>
+          <Card.Header className="product-h1-font"> ${props.price} </Card.Header>
         </Card.Content>
         <Card.Content extra>
           <span >

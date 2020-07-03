@@ -7,6 +7,7 @@ import { NavLink } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 
 const ProductDetail = props => {
+  const [qty, setQty] = useState(1);
   const [loadedProduct, setLoadedProduct] = useState({});
   const productID=useParams().id;
   useEffect(() => {
@@ -70,6 +71,7 @@ const ProductDetail = props => {
           </li>
         </ul>
       </div>
+
       </div>
   </React.Fragment>
   )

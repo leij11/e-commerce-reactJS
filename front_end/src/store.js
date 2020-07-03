@@ -8,8 +8,11 @@ import {
   productReviewSaveReducer,
 } from './reducers/product_reducer';
 import { cartReducer } from './reducers/cart_reducer';
+import Cookie from 'js-cookie';
 
+const cartItems = Cookie.getJSON('cartItems') || [];
 const initialState = {
+  cart: { cartItems, shipping: {}, payment: {} }
 };
 
 const reducer = combineReducers({

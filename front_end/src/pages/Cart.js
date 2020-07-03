@@ -8,6 +8,7 @@ const Cart = props => {
 
   const productID = props.match.params.id ? props.match.params.id : '';
   const qty=1
+  //const qty = props.location.search ? Number(props.location.search.split("=")[1]) : 1;
   const dispatch = useDispatch();
   const cart = useSelector(state => state.cart);
 
@@ -17,6 +18,9 @@ const Cart = props => {
     dispatch(removeFromCart(productId));
   }
 
+  const checkoutHandler = () => {
+    props.history.push("/auth?redirect=shipping");
+  }
   useEffect(() => {
     if (productID) {
       dispatch(addToCart(productID, qty));
@@ -55,11 +59,11 @@ const Cart = props => {
                       </div>
                       <div>
                         Qty:
-                      <select value={item.qty} onChange={(e) => dispatch(addToCart(item.product, e.target.value))}>
-                          {[...Array(item.countInStock).keys()].map(x =>
-                            <option key={x + 1} value={x + 1}>{x + 1}</option>
-                          )}
-                        </select>
+                        <select value={item.qty} onChange={(e) => dispatch(addToCart(item.product, e.target.value))}>
+                             {[...Array(item.countInStock).keys()].map(x =>
+                               <option key={x + 1} value={x + 1}>{x + 1}</option>
+                             )}
+                           </select>
                         <button type="button" className="button" onClick={() => removeFromCartHandler(item.product)} >
                           Delete
                         </button>
@@ -76,11 +80,11 @@ const Cart = props => {
         </div>
         <div className="cart-action">
           <h3>
-            Subtotal ( {cartItems.reduce((a, c) => a + c.qty, 0)} items)
+            Subtotal
             :
              $ {cartItems.reduce((a, c) => a + c.price * c.qty, 0)}
           </h3>
-          <button  className="button primary full-width" disabled={cartItems.length === 0}>
+          <button onClick={checkoutHandler} className="button primary full-width" disabled={cartItems.length === 0}>
             Proceed to Checkout
           </button>
 
