@@ -5,6 +5,7 @@ import Input from '../share/FormElements/Input';
 import Button from '../share/FormElements/Button';
 import ErrorModal from '../share/UIElements/ErrorModal';
 import LoadingSpinner from '../share/UIElements/LoadingSpinner';
+import { Link } from 'react-router-dom';
 import {
   VALIDATOR_EMAIL,
   VALIDATOR_MINLENGTH,
@@ -15,7 +16,7 @@ import { useHttpClient } from '../share/hooks/http-hook';
 import { AuthContext } from '../share/context/auth-context';
 import './Auth.css';
 
-const Auth = () => {
+const Auth = props => {
   const auth = useContext(AuthContext);
   const [isLoginMode, setIsLoginMode] = useState(true);
   const { isLoading, error, sendRequest, clearError } = useHttpClient();
@@ -58,9 +59,10 @@ const Auth = () => {
     setIsLoginMode(prevMode => !prevMode);
   };
 
+const redirect = props.location.search ? props.location.search.split("=")[1] : '/';
   const authSubmitHandler = async event => {
     event.preventDefault();
-
+    //console.log(formState.inputs);
     if (isLoginMode) {
       try {
         const responseData = await sendRequest(
@@ -74,7 +76,9 @@ const Auth = () => {
             'Content-Type': 'application/json'
           }
         );
+        props.history.push(redirect);
         auth.login(responseData.user.id);
+
       } catch (err) {}
     } else {
       try {

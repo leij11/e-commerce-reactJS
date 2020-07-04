@@ -1,12 +1,10 @@
 import React from 'react';
 
-const User = () => {
+const User = props => {
   return(
-    <div>
       <h1>
         User
       </h1>
-    </div>
   )
 }
 
