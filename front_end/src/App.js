@@ -24,6 +24,7 @@ const ProductDetail =React.lazy(()=>import('./pages/ProductDetail.js'));
 const Cart=React.lazy(()=>import('./pages/Cart.js'));
 const Home=React.lazy(()=>import('./pages/Home.js'));
 const Shipping=React.lazy(()=>import('./pages/Shipping.js'));
+const Payment=React.lazy(()=>import('./pages/Payment.js'));
 
 const App = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -48,10 +49,11 @@ const App = () => {
       <Route path="/cart/:id?" component={Cart} />
       <Route path="/category/:id" component={Home} />
       <Route path="/auth" component={Auth} />
+      <Route path="/shipping" exact={true} component={Shipping} />
+      <Route path="/payment" exact={true} component={Payment} />
       <Route path="/" exact={true} component={Home} />
       <Route path="/user" exact={true} component={User} />
-      <Route path="/shipping" exact={true} component={Shipping} />
-        <Redirect to="/" />
+      <Redirect to="/shipping" />
       </Switch>
     )
   }

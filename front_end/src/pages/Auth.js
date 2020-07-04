@@ -59,7 +59,7 @@ const Auth = props => {
     setIsLoginMode(prevMode => !prevMode);
   };
 
-const redirect = props.location.search ? props.location.search.split("=")[1] : '/';
+//const redirect = props.location.search ? props.location.search.split("=")[1] : '/';
   const authSubmitHandler = async event => {
     event.preventDefault();
     //console.log(formState.inputs);
@@ -76,7 +76,7 @@ const redirect = props.location.search ? props.location.search.split("=")[1] : '
             'Content-Type': 'application/json'
           }
         );
-        props.history.push(redirect);
+        //props.history.push(redirect);
         auth.login(responseData.user.id);
 
       } catch (err) {}
