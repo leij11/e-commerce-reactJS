@@ -15,7 +15,7 @@ const Shipping = props => {
   const submitHandler = (e) => {
     e.preventDefault();
     dispatch(saveShipping({ address, city, postalCode, country }));
-    props.history.push('payment');
+    props.history.push('/payment');
   }
 
   return(

@@ -59,7 +59,7 @@ const Auth = props => {
     setIsLoginMode(prevMode => !prevMode);
   };
 
-//const redirect = props.location.search ? props.location.search.split("=")[1] : '/';
+const redirect = props.location.search ? props.location.search.split("=")[1] : '/';
   const authSubmitHandler = async event => {
     event.preventDefault();
     //console.log(formState.inputs);
@@ -78,6 +78,10 @@ const Auth = props => {
         );
         //props.history.push(redirect);
         auth.login(responseData.user.id);
+        console.log(responseData)
+        if(responseData.message==='Logged in!'){
+          props.history.push(redirect);
+        }
 
       } catch (err) {}
     } else {

@@ -1,11 +1,12 @@
-import React, { useEffect } from 'react';
+import React, { useEffect,useContext } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { addToCart, removeFromCart } from '../actions/cart_actions';
 import './Cart.css';
+import { AuthContext } from '../share/context/auth-context';
 
 const Cart = props => {
-
+  const auth = useContext(AuthContext);
   const productID = props.match.params.id ? props.match.params.id : '';
   const qty=1
   //const qty = props.location.search ? Number(props.location.search.split("=")[1]) : 1;
@@ -19,7 +20,13 @@ const Cart = props => {
   }
 
   const checkoutHandler = () => {
-    props.history.push("/auth?redirect=shipping");
+    if(auth.isLoggedIn)
+    {
+      props.history.push("/shipping");
+    }
+    else {
+      props.history.push("/auth?redirect=shipping");
+    }
   }
   useEffect(() => {
     if (productID) {
