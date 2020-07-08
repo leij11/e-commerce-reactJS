@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { saveShipping } from '../actions/cart_actions';
-import Checkout from '../order/components/checkout';
 
 const Shipping = props => {
   const [address, setAddress] = useState('');
@@ -20,7 +19,6 @@ const Shipping = props => {
 
   return(
     <div>
-     <Checkout step1 step2 ></Checkout>
     <div className="form">
           <form onSubmit={submitHandler} >
             <ul className="form-container">

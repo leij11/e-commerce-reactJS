@@ -6,14 +6,6 @@ import {
   Redirect,
   Switch
 } from 'react-router-dom';
-/*
-import User from './pages/User.js'
-import Auth from './pages/Auth.js'
-import ProductDetail from './pages/ProductDetail.js'
-import MainNavigation from './share/Navigation/MainNavigation'
-import Cart from './pages/Cart.js'
-import Home from './pages/Home.js'
-*/
 import MainNavigation from './share/Navigation/MainNavigation'
 import LoadingSpinner from './share/UIElements/LoadingSpinner'
 import { AuthContext } from './share/context/auth-context.js';
@@ -25,7 +17,6 @@ const Cart=React.lazy(()=>import('./pages/Cart.js'));
 const Home=React.lazy(()=>import('./pages/Home.js'));
 const Shipping=React.lazy(()=>import('./pages/Shipping.js'));
 const Payment=React.lazy(()=>import('./pages/Payment.js'));
-const FinalStep=React.lazy(()=>import('./pages/FinalStep.js'));
 
 const App = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -54,7 +45,6 @@ const App = () => {
       <Route path="/payment" exact={true} component={Payment} />
       <Route path="/" exact={true} component={Home} />
       <Route path="/user" exact={true} component={User} />
-      <Route path="/finalstep" exact={true} component={FinalStep} />
       <Redirect to="/shipping" />
       </Switch>
     )
