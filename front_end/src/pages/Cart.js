@@ -2,14 +2,12 @@ import React, { useEffect,useContext } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { addToCart, removeFromCart } from '../actions/cart_actions';
-import './Cart.css';
+import '../Cart/components/Cart.css';
 import { AuthContext } from '../share/context/auth-context';
-
 const Cart = props => {
   const auth = useContext(AuthContext);
   const productID = props.match.params.id ? props.match.params.id : '';
   const qty=1
-  //const qty = props.location.search ? Number(props.location.search.split("=")[1]) : 1;
   const dispatch = useDispatch();
   const cart = useSelector(state => state.cart);
 
@@ -17,6 +15,22 @@ const Cart = props => {
 
   const removeFromCartHandler = (productId) => {
     dispatch(removeFromCart(productId));
+  }
+
+  const decrement = (product, qty) => {
+    if (qty<=1){
+      dispatch(removeFromCart(product));
+    }
+    else
+    {
+      dispatch(addToCart(product, qty-1))
+    }
+  }
+
+  const increment = (product, qty,stock) => {
+    if (qty<stock){
+      dispatch(addToCart(product, qty+1))
+    }
   }
 
   const checkoutHandler = () => {
@@ -66,11 +80,17 @@ const Cart = props => {
                       </div>
                       <div>
                         Qty:
+                        <button onClick={() => increment(item.product,item.qty,item.countInStock)}>
+                        +
+                        </button>
                         <select value={item.qty} onChange={(e) => dispatch(addToCart(item.product, e.target.value))}>
                              {[...Array(item.countInStock).keys()].map(x =>
                                <option key={x + 1} value={x + 1}>{x + 1}</option>
                              )}
                            </select>
+                           <button onClick={() => decrement(item.product,item.qty)}>
+                           -
+                           </button>
                         <button type="button" className="button" onClick={() => removeFromCartHandler(item.product)} >
                           Delete
                         </button>
@@ -94,10 +114,11 @@ const Cart = props => {
           <button onClick={checkoutHandler} className="button primary full-width" disabled={cartItems.length === 0}>
             Proceed to Checkout
           </button>
-
+          <button onClick={()=>{props.history.push("/");}} className="button primary full-width" disabled={cartItems.length === 0}>
+            Continue Shopping
+          </button>
+          </div>
         </div>
-
-      </div>
   )
 
 }

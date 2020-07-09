@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import {useParams} from 'react-router-dom'
-import './ProductDetail.css'
+import '../product/components/ProductDetail.css'
 import {Button,Icon,Rating } from 'semantic-ui-react'
 import { NavLink } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
@@ -23,14 +23,16 @@ const ProductDetail = props => {
   const handleAddToCart = () => {
   props.history.push('/cart/' + productID);
 };
+
+const backHandler= () => {
+  props.history.push("/");
+}
   return(
     <React.Fragment>
     <div className='detail-button'>
-      <Button animated  >
+      <Button animated  onClick={backHandler}>
         <Button.Content visible>
-          <NavLink to="/">
             Back
-          </NavLink>
         </Button.Content>
         <Button.Content hidden>
           <Icon name='arrow left' />
@@ -38,10 +40,8 @@ const ProductDetail = props => {
       </Button>
       <Button animated='vertical' onClick={handleAddToCart} >
         <Button.Content visible>
-        <NavLink to="/cart/:id">
         <Icon name='shop' />
           Add to Cart
-        </NavLink>
         </Button.Content>
         <Button.Content hidden>
           <Icon name='shop' />

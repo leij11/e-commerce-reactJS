@@ -32,6 +32,9 @@ const Payment = props => {
   }));
 }
 
+  const backHandler= () => {
+    props.history.push("/shipping");
+  }
 useEffect(() => {
   if (success) {
     props.history.push("/order/" + order._id);
@@ -40,6 +43,9 @@ useEffect(() => {
 }, [success]);
   return (
     <div>
+    <button type="button" className="button" onClick={backHandler} >
+      go back
+    </button>
       <div className="form">
         <form onSubmit={submitHandler}>
           <ul className="form-container">
