@@ -5,7 +5,6 @@ import Input from '../share/FormElements/Input';
 import Button from '../share/FormElements/Button';
 import ErrorModal from '../share/UIElements/ErrorModal';
 import LoadingSpinner from '../share/UIElements/LoadingSpinner';
-import { Link } from 'react-router-dom';
 import {
   VALIDATOR_EMAIL,
   VALIDATOR_MINLENGTH,

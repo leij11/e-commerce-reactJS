@@ -17,6 +17,7 @@ const Cart=React.lazy(()=>import('./pages/Cart.js'));
 const Home=React.lazy(()=>import('./pages/Home.js'));
 const Shipping=React.lazy(()=>import('./pages/Shipping.js'));
 const Payment=React.lazy(()=>import('./pages/Payment.js'));
+const PlaceOrder=React.lazy(()=>import('./pages/PlaceOrder.js'));
 
 const App = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -45,6 +46,7 @@ const App = () => {
       <Route path="/payment" exact={true} component={Payment} />
       <Route path="/" exact={true} component={Home} />
       <Route path="/user" exact={true} component={User} />
+      <Route path="/placeorder" exact={true} component={PlaceOrder} />
       <Redirect to="/shipping" />
       </Switch>
     )
@@ -57,6 +59,7 @@ const App = () => {
       <Route path="/category/:id" component={Home} />
       <Route path="/auth" component={Auth} />
       <Route path="/" exact={true} component={Home} />
+      <Route path="/shipping" exact={true} component={Shipping} />
       </Switch>
     )
   }

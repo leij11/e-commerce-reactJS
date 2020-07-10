@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { savePayment } from '../actions/cart_actions';
 import { createOrder } from '../actions/order_actions';
@@ -71,6 +70,9 @@ useEffect(() => {
             <li>
                 <Paypal toPay={totalPrice}/>
             </li>
+            <Button onClick={() => {props.history.push("/placeorder")}}>
+            continue
+            </Button>
           </ul>
         </form>
       </div>

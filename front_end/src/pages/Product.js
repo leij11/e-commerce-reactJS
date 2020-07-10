@@ -50,7 +50,7 @@ const backHandler= () => {
       </Button>
     </div>
 
-    <ProductDetails items={product} />;
+    <ProductDetails items={product} productID />;
   </React.Fragment>
   )
 

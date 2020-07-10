@@ -27,8 +27,8 @@
   border-bottom: 0.1rem #c0c0c0 solid;
 }
 .cart-list-container li img {
-  max-width: 10rem;
-  max-height: 10rem;
+  width: 8rem;
+  height: 8rem;
 }
 .cart-list-container li:first-child {
   display: flex;
@@ -43,6 +43,7 @@
 }
 .cart-price {
   flex: 1 1;
-  font-size: 2.5rem;
+  font-size: 2rem;
+  font-family:inherit;
   text-align: right;
 }

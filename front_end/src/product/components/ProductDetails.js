@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import {Rating } from 'semantic-ui-react';
 
 const ProductDetails = props => {
   return(
@@ -11,17 +10,13 @@ const ProductDetails = props => {
       <div className="details-info">
         <ul>
           <li>
-            <h2>{props.items.name}</h2>
+            <h3>{props.items.name}</h3>
           </li>
           <li>
-            <h5>{props.items.description} </h5>
+            <h3>Price: $<b>{props.items.price}</b></h3>
           </li>
           <li>
-            Price: $<b>{props.items.price}</b>
-          </li>
-          <li >
-            <Rating icon='star' defaultRating={2} maxRating={5} disabled size='small'/>
-            <h5>(numReviews: {props.items.numReviews} )</h5>
+            {props.items.description}
           </li>
         </ul>
       </div>
