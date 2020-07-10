@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom';
 import { addToCart, removeFromCart } from '../actions/cart_actions';
 import '../Cart/components/Cart.css';
 import { AuthContext } from '../share/context/auth-context';
+import { Button } from 'semantic-ui-react'
+
 const Cart = props => {
   const auth = useContext(AuthContext);
   const productID = props.match.params.id ? props.match.params.id : '';
@@ -80,7 +82,7 @@ const Cart = props => {
                       </div>
                       <div>
                         Qty:
-                        <button onClick={() => increment(item.product,item.qty,item.countInStock)}>
+                        <button className="cart_sign" onClick={() => increment(item.product,item.qty,item.countInStock)}>
                         +
                         </button>
                         <select value={item.qty} onChange={(e) => dispatch(addToCart(item.product, e.target.value))}>
@@ -88,10 +90,10 @@ const Cart = props => {
                                <option key={x + 1} value={x + 1}>{x + 1}</option>
                              )}
                            </select>
-                           <button onClick={() => decrement(item.product,item.qty)}>
+                           <button className="cart_sign" onClick={() => decrement(item.product,item.qty)}>
                            -
                            </button>
-                        <button type="button" className="button" onClick={() => removeFromCartHandler(item.product)} >
+                        <button className="cart_delete" onClick={() => removeFromCartHandler(item.product)} >
                           Delete
                         </button>
                       </div>
@@ -111,12 +113,12 @@ const Cart = props => {
             :
              $ {cartItems.reduce((a, c) => a + c.price * c.qty, 0)}
           </h3>
-          <button onClick={checkoutHandler} className="button primary full-width" disabled={cartItems.length === 0}>
+          <Button primary onClick={checkoutHandler}  disabled={cartItems.length === 0}>
             Proceed to Checkout
-          </button>
-          <button onClick={()=>{props.history.push("/");}} className="button primary full-width" disabled={cartItems.length === 0}>
+          </Button>
+          <Button secondary onClick={()=>{props.history.push("/");}} className="cart_primary" disabled={cartItems.length === 0}>
             Continue Shopping
-          </button>
+          </Button>
           </div>
         </div>
   )

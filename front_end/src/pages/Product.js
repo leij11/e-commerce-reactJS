@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import {useParams} from 'react-router-dom'
-import '../product/components/ProductDetail.css'
-import {Button,Icon,Rating } from 'semantic-ui-react'
+import '../product/components/Product.css'
+import {Button,Icon} from 'semantic-ui-react'
 import { NavLink } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
+import ProductDetails from '../product/components/ProductDetails';
 
-const ProductDetail = props => {
+const Product = props => {
   const [qty, setQty] = useState(1);
   const [loadedProduct, setLoadedProduct] = useState({});
   const productID=useParams().id;
@@ -49,33 +50,10 @@ const backHandler= () => {
       </Button>
     </div>
 
-    <div className="details">
-
-      <div className="details-image">
-        <img src={product.image} alt="product"></img>
-      </div>
-      <div className="details-info">
-        <ul>
-          <li>
-            <h2>{product.name}</h2>
-          </li>
-          <li>
-            <h5>{product.description} </h5>
-          </li>
-          <li>
-            Price: $<b>{product.price}</b>
-          </li>
-          <li >
-            <Rating icon='star' defaultRating={2} maxRating={5} disabled size='small'/>
-            <h5>(numReviews: {product.numReviews} )</h5>
-          </li>
-        </ul>
-      </div>
-
-      </div>
+    <ProductDetails items={product} />;
   </React.Fragment>
   )
 
 
 }
-export default ProductDetail
+export default Product

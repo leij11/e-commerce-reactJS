@@ -12,7 +12,7 @@ import { AuthContext } from './share/context/auth-context.js';
 
 const User=React.lazy(()=>import('./pages/User.js'));
 const Auth=React.lazy(()=>import('./pages/Auth.js'));
-const ProductDetail =React.lazy(()=>import('./pages/ProductDetail.js'));
+const Product =React.lazy(()=>import('./pages/Product.js'));
 const Cart=React.lazy(()=>import('./pages/Cart.js'));
 const Home=React.lazy(()=>import('./pages/Home.js'));
 const Shipping=React.lazy(()=>import('./pages/Shipping.js'));
@@ -37,7 +37,7 @@ const App = () => {
   if (isLoggedIn) {
     routes = (
       <Switch>
-      <Route path="/product/:id" component={ProductDetail} />
+      <Route path="/product/:id" component={Product} />
       <Route path="/cart/:id?" component={Cart} />
       <Route path="/category/:id" component={Home} />
       <Route path="/auth" component={Auth} />
@@ -52,7 +52,7 @@ const App = () => {
   else{
     routes=(
       <Switch>
-      <Route path="/product/:id" component={ProductDetail} />
+      <Route path="/product/:id" component={Product} />
       <Route path="/cart/:id?" component={Cart} />
       <Route path="/category/:id" component={Home} />
       <Route path="/auth" component={Auth} />

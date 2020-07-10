@@ -4,6 +4,8 @@ import { useSelector, useDispatch } from 'react-redux';
 import { savePayment } from '../actions/cart_actions';
 import { createOrder } from '../actions/order_actions';
 import Paypal from '../utils/Paypal'
+import {Button } from 'semantic-ui-react';
+
 const Payment = props => {
   const [paymentMethod, setPaymentMethod] = useState('');
   const cart = useSelector(state => state.cart);
@@ -43,9 +45,9 @@ useEffect(() => {
 }, [success]);
   return (
     <div>
-    <button type="button" className="button" onClick={backHandler} >
-      go back
-    </button>
+    <Button type="button" className="button" onClick={backHandler} >
+      Last step
+    </Button>
       <div className="form">
         <form onSubmit={submitHandler}>
           <ul className="form-container">
