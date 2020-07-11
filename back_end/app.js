@@ -1,12 +1,15 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
+
+const HttpError = require('./models/http-error');
+const stripe = require("stripe")("sk_test_51H3QEsF4OAc3evOhzy66CHZk97fKRoGW9HOJyFGE1AUCFCvXaTov0CidGW50GnJuZjUU19K2PAYxfJ3WsaU9OXdk002aDSR3O6");
+const app = express();
+
 const productRoutes = require('./routes/product-routes');
 const usersRoutes = require('./routes/user-routes');
 const orderRoutes = require('./routes/order-routes');
-const HttpError = require('./models/http-error');
-
-const app = express();
+const stripeRoutes=require('./util/stripe_routes');
 
 app.use(bodyParser.json());
 
@@ -24,6 +27,7 @@ app.use((req, res, next) => {
 app.use('/api/product', productRoutes);
 app.use('/api/users', usersRoutes);
 app.use('/api/order', orderRoutes);
+app.use('/api/stripe',stripeRoutes);
 
 app.use((req, res, next) => {
   const error = new HttpError('Could not find this route.', 404);
