@@ -1,15 +1,17 @@
 const Order = require('../models/order-models.js');
+const HttpError = require('../models/http-error');
 
 const createOrder= async(req,res,next) =>{
   const newOrder = new Order({
     orderItems: req.body.orderItems,
-    user: req.user._id,
+    user: req.body.user,
     shipping: req.body.shipping,
     payment: req.body.payment,
     itemsPrice: req.body.itemsPrice,
     taxPrice: req.body.taxPrice,
     shippingPrice: req.body.shippingPrice,
     totalPrice: req.body.totalPrice,
+    name:req.body.name
   });
   const newOrderCreated = await newOrder.save();
   res.status(201).send({ message: "New Order Created", data: newOrderCreated });
@@ -26,12 +28,14 @@ const getOrdersById=async(req,res,next)=>{
 }
 
 const getOrdersByUserId=async(req,res,next)=>{
+
   const order = await Order.findOne({ _id: req.params.oid });
   if (order) {
     res.send(order);
   } else {
     res.status(404).send("Order Not Found.")
   }
+  
 }
 
 const deleteOrdersById=async(req,res,next)=>{

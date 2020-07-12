@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState,useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { saveShipping } from '../actions/cart_actions';
@@ -6,8 +6,12 @@ import {Form,Button,Input,TextArea } from 'semantic-ui-react';
 import StripeCheckout from "react-stripe-checkout";
 import axios from 'axios';
 import Paypal from '../utils/Paypal'
+import { createOrder } from '../actions/order_actions';
+import { AuthContext } from '../share/context/auth-context';
 
 const Shipping = props => {
+  const auth = useContext(AuthContext);
+  const payment='paypal';
   const [address, setAddress] = useState('');
   const [city, setCity] = useState('');
   const [postalCode, setPostalCode] = useState('');
@@ -16,19 +20,13 @@ const Shipping = props => {
   const [lastName, setLastName] = useState('');
 
   const cart = useSelector(state => state.cart);
-  const { cartItems, shipping, payment } = cart;
+  const { cartItems} = cart;
 
   const itemsPrice = cartItems.reduce((a, c) => a + c.price * c.qty, 0);
   const shippingPrice = itemsPrice > 100 ? 0 : 10;
   const taxPrice = 0.15 * itemsPrice;
   const totalPrice = Math.round(itemsPrice + shippingPrice + taxPrice);
   const dispatch = useDispatch();
-
-  const submitHandler = (e) => {
-    e.preventDefault();
-    dispatch(saveShipping({ address, city, postalCode, country }));
-    props.history.push('/payment');
-  }
 
   async function handleToken(token, addresses) {
     console.log(token,addresses);
@@ -45,8 +43,26 @@ const Shipping = props => {
 
     );
     const { status } = response.data;
-    console.log("Response:", response.data);
+    //console.log("Response:", response.data);
     if (status === "success") {
+      dispatch(saveShipping({ address, city, postalCode, country }));
+      dispatch(createOrder({
+        orderItems: cartItems,
+        user:auth.userId,
+        payment,
+        shipping:
+        {
+          address,
+          city,
+          postalCode,
+          country
+        },
+        name:firstName+" "+lastName,
+        itemsPrice,
+        shippingPrice,
+        taxPrice,
+        totalPrice
+      }));
       console.log("Success! Check email for details", { type: "success" });
       props.history.push('./finalpage')
     } else {
