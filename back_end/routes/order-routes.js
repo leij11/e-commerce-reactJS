@@ -6,7 +6,7 @@ router.get('/', orderController.getAllOrders);
 
 router.get('/:oid', orderController.getOrdersById);
 
-router.get('/userId/:uid', orderController.getOrdersByUserId);
+router.get('/users/:uid', orderController.getOrdersByUserId);
 
 router.post('/', orderController.createOrder);
 
@@ -14,6 +14,5 @@ router.delete('/:oid', orderController.deleteOrdersById);
 
 router.patch('/:oid', orderController.updateOrdersById);
 
-router.patch('/:oid/pay', orderController.updatePayment);
 
 module.exports = router;
