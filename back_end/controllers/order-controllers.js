@@ -86,7 +86,8 @@ const getOrdersByUserId=async(req,res,next)=>{
       new HttpError('Could not find orders for the provided user id.', 404)
     );
   }
-  res.send(userWithorders);
+  //res.send(userWithorders);
+  res.json({ orders: userWithorders.orders.map(order => order.toObject({ getters: true })) });
 
 }
 
