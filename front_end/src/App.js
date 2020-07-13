@@ -14,7 +14,7 @@ const User=React.lazy(()=>import('./pages/User.js'));
 const Auth=React.lazy(()=>import('./pages/Auth.js'));
 const Product =React.lazy(()=>import('./pages/Product.js'));
 const Cart=React.lazy(()=>import('./pages/Cart.js'));
-const Home=React.lazy(()=>import('./pages/Home.js'));
+const Main=React.lazy(()=>import('./pages/Main.js'));
 const Shipping=React.lazy(()=>import('./pages/Shipping.js'));
 const FinalPage=React.lazy(()=>import('./pages/FinalPage.js'));
 
@@ -39,10 +39,10 @@ const App = () => {
       <Switch>
       <Route path="/product/:id" component={Product} />
       <Route path="/cart/:id?" component={Cart} />
-      <Route path="/category/:id" component={Home} />
+      <Route path="/category/:id" component={Main} />
       <Route path="/auth" component={Auth} />
       <Route path="/shipping" exact={true} component={Shipping} />
-      <Route path="/" exact={true} component={Home} />
+      <Route path="/" exact={true} component={Main} />
       <Route path="/user" exact={true} component={User} />
       <Route path="/finalpage" exact={true} component={FinalPage} />
       <Redirect to="/shipping" />
@@ -54,9 +54,9 @@ const App = () => {
       <Switch>
       <Route path="/product/:id" component={Product} />
       <Route path="/cart/:id?" component={Cart} />
-      <Route path="/category/:id" component={Home} />
+      <Route path="/category/:id" component={Main} />
       <Route path="/auth" component={Auth} />
-      <Route path="/" exact={true} component={Home} />
+      <Route path="/" exact={true} component={Main} />
       </Switch>
     )
   }

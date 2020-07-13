@@ -11,14 +11,14 @@
 }
 
 .nav-links li {
-  margin: 0 1.5rem;
+  margin: 0 0.5rem;
 }
 
 .nav-links a {
   border: 1px solid transparent;
   color: white;
   text-decoration: none;
-  font-size:18px;
+  font-size:12px;
 }
 
 .nav-links a:hover,
@@ -37,6 +37,7 @@
   padding: 0.5rem;
   font: inherit;
   border: 1px solid white;
+  font-size:12px;
 }
 
 .nav-links button:focus {
@@ -47,4 +48,33 @@
 .nav-links button:active {
   background: #f8df00;
   color: #292929;
+}
+
+@media (min-width: 445px) {
+  .nav-links {
+    flex-direction: row;
+  }
+
+  .nav-links li {
+    margin: 0 0.8rem;
+  }
+
+  .nav-links a {
+    color: white;
+    text-decoration: none;
+    font-size:18px;
+  }
+
+  .nav-links button {
+    border: 1px solid white;
+    color: white;
+    background: transparent;
+    font-size:16px;
+  }
+
+  .nav-links button:hover,
+  .nav-links button:active {
+    background: #f8df00;
+    color: #292929;
+  }
 }

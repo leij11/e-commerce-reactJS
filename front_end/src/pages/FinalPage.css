@@ -1,0 +1,16 @@
+
+.final-container{
+  height: 100vh;
+  max-width: 8000px;
+  align-items: center;
+  display: block;
+  text-align: center;
+  position: relative;
+}
+
+.final-title{
+  justify-content: center;
+   align-items: center;
+   text-align: center;
+   margin: 15em 3em 0 3em;
+}

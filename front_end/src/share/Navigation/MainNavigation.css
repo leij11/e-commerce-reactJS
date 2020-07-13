@@ -19,6 +19,8 @@
 
 .main-navigation__title {
   color: white;
+  font-size:20px;
+  padding-bottom: 10px;
 }
 
 .main-navigation__title a {
@@ -31,4 +33,12 @@
 }
 .main-navigation__drawer-nav {
   height: 100%;
+}
+
+@media (min-width: 445px) {
+  .main-navigation__title {
+    color: white;
+    font-size:28px;
+    padding-bottom: 10px;
+  }
 }

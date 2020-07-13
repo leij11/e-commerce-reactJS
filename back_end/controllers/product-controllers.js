@@ -5,22 +5,23 @@ const Product = require('../models/product-model');
 const HttpError = require('../models/http-error');
 
 const getAllProduct= async (req, res, next) => {
-  /*
-  let product;
-
-  try {
-    product = await Product.find({});
-  } catch (err) {
-    const error = new HttpError(
-      'Something went wrong, could not find products.',
-      500
-    );
-    return next(error);
-  }
-  res.json({ product: product.map(user => user.toObject({ getters: true })) });
-  */
   const category = req.query.category ? { category: req.query.category } : {};
-  const products = await Product.find({...category});
+  const searchKeyword = req.query.searchKeyword
+    ? {
+        name: {
+          $regex: req.query.searchKeyword,
+          $options: 'i',
+        },
+      }
+    : {};
+  const sortOrder = req.query.sortOrder
+    ? req.query.sortOrder === 'lowest'
+      ? { price: 1 }
+      : { price: -1 }
+    : { _id: -1 };
+  const products = await Product.find({ ...category, ...searchKeyword }).sort(
+    sortOrder
+  );
   res.send(products);
 }
 
@@ -72,6 +73,8 @@ const updateProduct = async (req, res, next) => {
     product.category = req.body.category;
     product.countInStock = req.body.countInStock;
     product.description = req.body.description;
+    product.size=req.body.size;
+    product.color=req.body.color;
     const updatedProduct = await product.save();
     if (updatedProduct) {
       return res
@@ -94,6 +97,8 @@ const createProduct= async(req,res,next) =>
       description: req.body.description,
       rating: req.body.rating,
       numReviews: req.body.numReviews,
+      size:req.body.size,
+      color:req.body.color
     });
     const newProduct = await createdProduct.save();
     if (newProduct) {

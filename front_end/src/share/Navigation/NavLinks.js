@@ -32,6 +32,7 @@ const NavLinks = props => {
       )}
 
     </ul>
+    
 )
 };
 

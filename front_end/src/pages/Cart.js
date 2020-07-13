@@ -14,6 +14,10 @@ const Cart = props => {
   const cart = useSelector(state => state.cart);
 
   const { cartItems } = cart;
+  const itemsPrice = cartItems.reduce((a, c) => a + c.price * c.qty, 0);
+    const shippingPrice = itemsPrice > 99 ? 0 : 10;
+    const taxPrice = Math.round(0.15 * itemsPrice);
+    const totalPrice = itemsPrice + shippingPrice + taxPrice;
 
   const removeFromCartHandler = (productId) => {
     dispatch(removeFromCart(productId));
@@ -107,19 +111,37 @@ const Cart = props => {
           </ul>
 
         </div>
-        <div className="cart-action">
-          <h3>
-            Subtotal
-            :
-             $ {cartItems.reduce((a, c) => a + c.price * c.qty, 0)}
-          </h3>
-          <Button primary onClick={checkoutHandler}  disabled={cartItems.length === 0}>
-            Proceed to Checkout
-          </Button>
-          <Button secondary onClick={()=>{props.history.push("/");}} className="cart_primary" disabled={cartItems.length === 0}>
-            Continue Shopping
-          </Button>
-          </div>
+
+          <div className="placeorder-action">
+        <ul>
+
+          <li>
+            <h3>Order Summary</h3>
+          </li>
+          <li>
+            <div>Price</div>
+            <div>${itemsPrice}</div>
+          </li>
+          <li>
+            <div>Shipping</div>
+            <div>${shippingPrice}</div>
+          </li>
+          <li>
+            <div>Tax</div>
+            <div>${taxPrice}</div>
+          </li>
+          <li>
+            <div>Order Total</div>
+            <div>${totalPrice}</div>
+          </li>
+        </ul>
+
+        <Button primary onClick={checkoutHandler}  disabled={cartItems.length === 0}>
+          Proceed to Checkout
+        </Button>
+
+      </div>
+
         </div>
   )
 
