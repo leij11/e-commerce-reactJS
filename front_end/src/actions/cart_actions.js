@@ -4,7 +4,7 @@ import Cookie from "js-cookie";
 
 const addToCart = (productId, qty) => async (dispatch, getState) => {
   try {
-    const { data } = await Axios.get("/api/product/" + productId);
+    const { data } = await Axios.get(process.env.REACT_APP_BACKEND_URL+`/product/${productId}`);
     dispatch({
       type: CART_ADD_ITEM, payload: {
         product: data._id,

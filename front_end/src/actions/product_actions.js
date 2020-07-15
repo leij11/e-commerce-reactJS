@@ -26,7 +26,7 @@ const listProducts = (
   try {
     dispatch({ type: PRODUCT_LIST_REQUEST });
     const { data } = await axios.get(
-      '/api/product?category=' +
+      process.env.REACT_APP_BACKEND_URL+`/api/product?category=` +
         category +
         '&searchKeyword=' +
         searchKeyword +

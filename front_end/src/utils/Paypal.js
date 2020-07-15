@@ -8,7 +8,7 @@ export default class MyApp extends React.Component {
             		console.log("The payment was succeeded!", payment);
             		// You can bind the "payment" object's value to your state or props or whatever here, please see below for sample returned data
                 this.props.onSuccess(payment);
-                this.props.history.push('/');
+                this.props.history.push('/finalpage');
         }
 
         const onCancel = (data) => {

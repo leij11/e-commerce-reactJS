@@ -1,0 +1,15 @@
+.ship-form
+{
+  margin-top:15em;
+}
+
+.stripe{
+  display:flex;
+  margin-left: 0.5em;
+  margin-right: 1em;
+}
+
+.ship-form h4
+{
+  margin-bottom:2em;
+}
