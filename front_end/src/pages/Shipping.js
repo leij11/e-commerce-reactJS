@@ -32,6 +32,7 @@ const Shipping = props => {
   //const key=process.env.STRIPE_KEY;
   //console.log(process.env.STRIPE_KEY);
   //console.log(process.env.REACT_APP_ASSET_URL);
+
   async function handleToken(token, addresses) {
     console.log(token,addresses);
 

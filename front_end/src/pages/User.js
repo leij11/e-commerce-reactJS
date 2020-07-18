@@ -14,7 +14,7 @@ const User = props => {
   useEffect(() => {
       const fetchOrder = async () => {
         try{
-        const responseData=await sendRequest("/api/order/users/"+auth.userId);
+        const responseData=await sendRequest(process.env.REACT_APP_BACKEND_URL+`/order/users/${auth.userId}`);
 
         setOrders(responseData.orders);
       } catch (err) {}
