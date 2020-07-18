@@ -13,7 +13,8 @@ const Product = props => {
   const productID=useParams().id;
   useEffect(() => {
     const fetchProduct = async () => {
-      const {data}=await axios.get("/api/product/"+productID);
+      const {data}=await axios.get(process.env.REACT_APP_BACKEND_URL+`/product/${productID}`);
+      //const {data}=await axios.get("/api/product/"+productID);
       setLoadedProduct(data);
     };
     fetchProduct();

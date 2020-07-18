@@ -29,9 +29,15 @@ const Shipping = props => {
   const totalPrice = Math.round(itemsPrice + shippingPrice + taxPrice);
   const dispatch = useDispatch();
 
+<<<<<<< HEAD
   //const key=process.env.STRIPE_KEY;
   //console.log(process.env.STRIPE_KEY);
   //console.log(process.env.REACT_APP_ASSET_URL);
+=======
+  const key=process.env.STRIPE_KEY;
+  console.log(process.env.STRIPE_KEY);
+  console.log(process.env.REACT_APP_ASSET_URL);
+>>>>>>> 21899f28b4456ec8828ea0909e53351d9c3c7417
   async function handleToken(token, addresses) {
     console.log(token,addresses);
 
