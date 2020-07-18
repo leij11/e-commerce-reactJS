@@ -8,6 +8,7 @@ import axios from 'axios';
 import Paypal from '../utils/Paypal'
 import { createOrder } from '../actions/order_actions';
 import { AuthContext } from '../share/context/auth-context';
+import './Shipping.css';
 
 const Shipping = props => {
   const auth = useContext(AuthContext);
@@ -28,6 +29,9 @@ const Shipping = props => {
   const totalPrice = Math.round(itemsPrice + shippingPrice + taxPrice);
   const dispatch = useDispatch();
 
+  //const key=process.env.STRIPE_KEY;
+  //console.log(process.env.STRIPE_KEY);
+  //console.log(process.env.REACT_APP_ASSET_URL);
   async function handleToken(token, addresses) {
     console.log(token,addresses);
 
@@ -63,7 +67,7 @@ const Shipping = props => {
         taxPrice,
         totalPrice
       }));
-      console.log("Success! Check email for details", { type: "success" });
+      console.log("Success! ", { type: "success" });
       props.history.push('./finalpage')
     } else {
       console.log(status, { type: "error" });
@@ -72,7 +76,7 @@ const Shipping = props => {
   }
   return(
 <React.Fragment>
-    <Form>
+    <Form className="ship-form">
     <h4 class="ui dividing header">Shipping Information</h4>
       <Form.Group widths='equal'>
       <Form.Field
@@ -115,19 +119,17 @@ const Shipping = props => {
     />
   </Form.Group>
 
-    <h4 class="ui dividing header">Payment</h4>
+    <h4>Payment</h4>
     </Form>
     <div className="stripe">
       <StripeCheckout
-        stripeKey="pk_test_51H3QEsF4OAc3evOhCY90DsnwJtnlFiLZX6G34A5Fw25MVYu1qLephFYQCYa2d8ht674p55JnvPVEDhTobYSiAfBG00Irp7GHn0"
-        token={handleToken}
+      className="stripe"
+        stripeKey={key}
         amount={totalPrice*100}
         name={firstName+" "+lastName}
         address_line1={address}
       />
-  </div>
-
-    <Paypal toPay={totalPrice}/>
+    </div>
 </React.Fragment>
   )
 }

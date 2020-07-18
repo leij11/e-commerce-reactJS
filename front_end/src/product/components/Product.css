@@ -9,7 +9,7 @@
 .details-image {
   margin-top: 1em;
   margin-left: 1em;
-  flex: 2 1 60rem;
+  flex: 2 1 15rem;
 }
 .details-image img {
   max-width: 30rem;
@@ -17,9 +17,8 @@
   width: 90%;
 }
 .details-info {
-  flex: 1 1 30rem;
+  flex: 1 1 20rem;
 }
-
 
 .details-info ul,
 .details-action ul {
@@ -27,7 +26,10 @@
   padding: 0;
 }
 .details-info li,
+.details-action li {
+  margin-bottom: 0.9rem;
+}
 
-.detail-button {
-  padding: 2rem;
+.details-info h3{
+  margin-bottom: 3rem;
 }

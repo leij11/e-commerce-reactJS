@@ -3,13 +3,14 @@ const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 
 const HttpError = require('./models/http-error');
-const stripe = require("stripe")("sk_test_51H3QEsF4OAc3evOhzy66CHZk97fKRoGW9HOJyFGE1AUCFCvXaTov0CidGW50GnJuZjUU19K2PAYxfJ3WsaU9OXdk002aDSR3O6");
 const app = express();
 
 const productRoutes = require('./routes/product-routes');
 const usersRoutes = require('./routes/user-routes');
 const orderRoutes = require('./routes/order-routes');
 const stripeRoutes=require('./util/stripe_routes');
+
+require('dotenv').config()
 
 app.use(bodyParser.json());
 
@@ -45,6 +46,7 @@ app.use((error, req, res, next) => {
 //mongodb+srv://Jessica:<password>@cluster0-d6zei.mongodb.net/<dbname>?retryWrites=true&w=majority
 mongoose
   .connect(`mongodb+srv://Jessica:123@cluster0-d6zei.mongodb.net/ecommmerce?retryWrites=true&w=majority`)
+  //.connect(`mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASSWORD}@cluster0-d6zei.mongodb.net/${process.env.DB_NAME}?retryWrites=true&w=majority`)
   .then(() => {
     app.listen(process.env.PORT||5000);
   })

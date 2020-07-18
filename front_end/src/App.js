@@ -45,7 +45,6 @@ const App = () => {
       <Route path="/" exact={true} component={Main} />
       <Route path="/user" exact={true} component={User} />
       <Route path="/finalpage" exact={true} component={FinalPage} />
-      <Redirect to="/shipping" />
       </Switch>
     )
   }
