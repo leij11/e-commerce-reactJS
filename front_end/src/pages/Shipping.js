@@ -126,6 +126,7 @@ const Shipping = props => {
       <StripeCheckout
       className="stripe"
         stripeKey="pk_test_51H3QEsF4OAc3evOhCY90DsnwJtnlFiLZX6G34A5Fw25MVYu1qLephFYQCYa2d8ht674p55JnvPVEDhTobYSiAfBG00Irp7GHn0"
+        token={handleToken}
         amount={totalPrice*100}
         name={firstName+" "+lastName}
         address_line1={address}
