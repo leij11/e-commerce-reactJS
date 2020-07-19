@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Card,Image, Rating } from 'semantic-ui-react';
+import { Card,Image } from 'semantic-ui-react';
 import { List } from 'semantic-ui-react'
 
 const ProductDetails = props => {

@@ -1,10 +1,12 @@
 import React from 'react';
 import { Card,Image, Rating } from 'semantic-ui-react'
 import './ProductItem.css'
+import { Link } from 'react-router-dom';
 
 const ProductItem = props => {
   return (
-      <Card href={'/product/' + props.id} >
+      <Card  >
+      <Link to={`/product/${props.id}`}>
         <Image src={props.image} alt={props.title}  mode='fit' width={400} height={300}/>
         <Card.Content>
           <Card.Header className="product-title-font"> {props.name} </Card.Header>
@@ -19,6 +21,7 @@ const ProductItem = props => {
             {props.numReviews} reviews
           </span>
         </Card.Content>
+              </Link>
       </Card>
   );
 };

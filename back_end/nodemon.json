@@ -1,7 +1,7 @@
 {
   "env":{
     "DB_USER":"Jessica",
-    "DB_PASSWORD":"123",
+    "DB_PASSWORD":"wbdthARNeOvOSP0N",
     "DB_NAME":"ecommmerce",
     "STRIPE_KEY":"sk_test_51H3QEsF4OAc3evOhzy66CHZk97fKRoGW9HOJyFGE1AUCFCvXaTov0CidGW50GnJuZjUU19K2PAYxfJ3WsaU9OXdk002aDSR3O6",
   }

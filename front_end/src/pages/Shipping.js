@@ -1,11 +1,9 @@
-import React, { useEffect, useState,useContext } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState,useContext } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { saveShipping } from '../actions/cart_actions';
-import {Form,Button,Input,TextArea } from 'semantic-ui-react';
+import {Form,Input } from 'semantic-ui-react';
 import StripeCheckout from "react-stripe-checkout";
 import axios from 'axios';
-import Paypal from '../utils/Paypal'
 import { createOrder } from '../actions/order_actions';
 import { AuthContext } from '../share/context/auth-context';
 import './Shipping.css';
@@ -36,8 +34,8 @@ const Shipping = props => {
   async function handleToken(token, addresses) {
     console.log(token,addresses);
 
-    const response = await axios.post(
-      "/api/stripe/checkout",
+    const response = await axios.post(process.env.REACT_APP_BACKEND_URL+
+      "/stripe/checkout",
       {
         amount:totalPrice,
         source:token.id,
@@ -125,7 +123,7 @@ const Shipping = props => {
     <div className="stripe">
       <StripeCheckout
       className="stripe"
-        stripeKey="pk_test_51H3QEsF4OAc3evOhCY90DsnwJtnlFiLZX6G34A5Fw25MVYu1qLephFYQCYa2d8ht674p55JnvPVEDhTobYSiAfBG00Irp7GHn0"
+        stripeKey={process.env.REACT_APP_STRIPE_KEY}
         token={handleToken}
         amount={totalPrice*100}
         name={firstName+" "+lastName}

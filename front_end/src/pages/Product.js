@@ -3,17 +3,15 @@ import axios from 'axios';
 import {useParams} from 'react-router-dom'
 import '../product/components/Product.css'
 import {Button,Icon} from 'semantic-ui-react'
-import { NavLink } from 'react-router-dom';
-import { useSelector, useDispatch } from 'react-redux';
 import ProductDetails from '../product/components/ProductDetails';
 
 const Product = props => {
-  const [qty, setQty] = useState(1);
   const [loadedProduct, setLoadedProduct] = useState({});
-  const productID=useParams().id;
+  //const productID=useParams().id;
+  const productID = props.match.params.id ? props.match.params.id : '';
   useEffect(() => {
     const fetchProduct = async () => {
-      const {data}=await axios.get("/api/product/"+productID);
+      const {data}=await axios.get(process.env.REACT_APP_BACKEND_URL+"/product/"+productID);
       setLoadedProduct(data);
     };
     fetchProduct();

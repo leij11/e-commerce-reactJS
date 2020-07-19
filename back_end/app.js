@@ -11,7 +11,7 @@ const orderRoutes = require('./routes/order-routes');
 const stripeRoutes=require('./util/stripe_routes');
 
 require('dotenv').config()
-
+//console.log(process.env);
 app.use(bodyParser.json());
 
 app.use((req, res, next) => {
@@ -45,13 +45,8 @@ app.use((error, req, res, next) => {
 
 //mongodb+srv://Jessica:<password>@cluster0-d6zei.mongodb.net/<dbname>?retryWrites=true&w=majority
 mongoose
-<<<<<<< HEAD
-  .connect(`mongodb+srv://Jessica:123@cluster0-d6zei.mongodb.net/ecommmerce?retryWrites=true&w=majority`)
-  //.connect(`mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASSWORD}@cluster0-d6zei.mongodb.net/${process.env.DB_NAME}?retryWrites=true&w=majority`)
-=======
-  //.connect(`mongodb+srv://Jessica:123@cluster0-d6zei.mongodb.net/ecommmerce?retryWrites=true&w=majority`)
+  //.connect(`mongodb+srv://Jessica:wbdthARNeOvOSP0N@cluster0-d6zei.mongodb.net/ecommmerce?retryWrites=true&w=majority`)
   .connect(`mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASSWORD}@cluster0-d6zei.mongodb.net/${process.env.DB_NAME}?retryWrites=true&w=majority`)
->>>>>>> 21899f28b4456ec8828ea0909e53351d9c3c7417
   .then(() => {
     app.listen(process.env.PORT||5000);
   })

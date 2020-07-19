@@ -1,4 +1,8 @@
-const stripe = require("stripe")("sk_test_51H3QEsF4OAc3evOhzy66CHZk97fKRoGW9HOJyFGE1AUCFCvXaTov0CidGW50GnJuZjUU19K2PAYxfJ3WsaU9OXdk002aDSR3O6");
+require('dotenv').config()
+
+const stripeKey=process.env.STRIPE_KEY;
+const stripe = require("stripe")(stripeKey);
+
 const { uuid } = require('uuidv4');
 
 const createStripe=  async (req, res) => {
